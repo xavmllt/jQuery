@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>TP 23</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 10px;
+            font: 80% Arial, sans-serif;
+        }
+        h2{
+            clear: both;
+            font-size: 160%;
+            font-weight: normal;
+            margin: 0px;
+            padding-top: 10px;
+            padding-bottom: 15px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        img{
+            border: 1px solid black;
+        }
+        ul, li{
+            list-style: none;
+            float: left;
+            display: inline;
+            margin-right: 10px;
+        }
+        #zoom{
+            position: absolute;
+            border: 1px solid #333;
+            background: #333;
+            padding: 3px;
+            display: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h2>Effet de zoom sur les images et <br>affichage des légendes</h2>
+
+    <ul>
+        <li><a href="logo.jpg" class="zoom" title="Ours polaire en danger"><img src="logo.jpg" alt="Ours en danger"></a></li>
+        <li><a href="logo.jpg" class="zoom" title="Ours polaire en danger"><img src="logo.jpg" alt="Ours en danger"></a></li>
+        <li><a href="logo.jpg" class="zoom" title="Ours polaire en danger"><img src="logo.jpg" alt="Ours en danger"></a></li>
+        <li><a href="logo.jpg" class="zoom" title="Ours polaire en danger"><img src="logo.jpg" alt="Ours en danger"></a></li>
+    </ul>
+
+
+    <script>
+        $(document).ready(function(){
+            this.zoom_image = function(){
+                xOffset = 10;
+                yOffset = 30;
+                $("a.zoom").hover(function(e){
+                    this.texte = this.title;
+                    this.title = "";
+                    var legende = (this.texte != "") ? "<br>" + this.texte: "";
+                    $("body").append("<p id='zoom'>img src='" + this.href + "' alt='visualisation image'/>" + legende + "</p>");
+                    $("#zoom")
+                    .css("top",(e.pageY - xOffset) + "px")
+                    .css("left",(e.pageX - yOffset) + "px")
+                    .fadeIn("slow");
+                },
+                function(){
+                    this.title = this.texte;
+                    $("#zoom").remove();
+                });
+                $("a.zoom").mousemove(function(e){
+                    $("#zoom")
+                    .css("top",(e.pageY - xOffset) + "px")
+                    .css("left",(e.pageX - yOffset) + "px")
+                });
+            };
+            $(document).ready(function(){
+                zoom_image();
+            });
+        });
+    </script>
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>TP 23</title>
+    <style>
+        div{
+            position: relative;
+            width: 250px;
+            height: 130px;
+            border: 1px solid black;
+            margin-top: 10px;
+            padding: 3px;
+            font-size: 0.9em;
+            overflow: auto;
+        }
+        p{
+            margin: 2px;
+            width: 225px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <button id="go">Aller au paragraphe 2</button>
+    <button id="reset">Revenir à l'affichage initial</button>
+
+    <div class="demo">
+        <p>
+            <strong>Paragraphe 1</strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci quaerat iste quisquam provident vero voluptatibus rerum impedit reiciendis maiores. Cum, amet nobis magni voluptatem perspiciatis ipsa eius atque cupiditate veniam.
+        </p>
+        <p>
+            <strong>Paragraphe 2</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque earum, exercitationem eveniet quaerat incidunt voluptatibus dolor tenetur voluptatem sint natus esse molestiae, atque fuga fugiat excepturi itaque sapiente culpa sed.
+        </p>
+    </div>
+
+
+    <script>
+        $(document).ready(function(){
+            $("#go").click(function(){
+                $("div").scrollTop(148);
+            });
+            $("#reset").click(function(){
+                $("div").scrollTop(0);
+            });
+        });
+    </script>
+    
+    
+    
+</body>
+</html>
