@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Document</title>
+    <style>
+        li{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <li>élément de liste 1</li>
+    <li>élément de liste 2</li>
+    <li>élément de liste 3</li>
+    <li>élément de liste 4</li>
+    <li>élément de liste 5</li>
+
+    <script>
+        $(document).ready(function(){
+            $("li:lt(4)").css("background", "#9cf"); // selection de façon cibler les éléments choisis par leur position.
+        });
+    </script>
+</body>
+</html>

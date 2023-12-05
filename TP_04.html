@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Document</title>
+    <style>
+        li{
+            width: 150px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <li class="un">Element 1</li>
+    <li class="deux">Element 2</li>
+    <li class="trois">Element 3</li>
+    <li class="quatre">Element 4</li>
+    <li class="cinq">Element 5</li>
+
+    <script>
+        $(document).ready(function(){
+            $("li.deux ~ li").css("border", "1px solid black");
+            $("li.un + li").css("border", "2px double black");
+        });
+        
+    </script>
+
+</body>
+</html>

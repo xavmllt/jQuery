@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Document</title>
+    <style>
+        p{
+            width: 200px;
+            padding: 3px;
+        }
+        div{
+            padding: 3px;
+        }
+        .gras{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+
+    <p>Hello</p>
+    <script>
+        $(document).ready(function(){
+               $("ul").append("item4");
+               $("p").append("item4");
+               $("p").width(700);
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+Qu'est ce que JQuery
+C'est une bibliothèque rapide et légère qui simplifie l'interaction avec le html, le css et le javascript sur une page web.
+
+Avantages :
+Simplifie la manipulation du DOM
+Génère les évènements de manière élégante 
+Failite les animations et les effets
+Assure un dynamisme au site
+
+Inclusion ou utlisation
+Pour utiliser jQuery, on télécharge la bibliothèque depuis jquery.com ou on utilise une version hébergée puis on l'insère dans le HTML.
+Exemple : <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+Sélecteur :
+Les sélécteur Jquery permet de cibler des éléments html pour les manipuler
+Exemple :
+// Sélectionner tous les éléments d'une classe
+$('.maclasse');
+
+// Sélectionner tous les éléments enfants
+$('div>p');
+
+2. Manipulation du DOM
+    1. Modifier le texte d'un élément
+    // changer le texte de tous les paragraphes
+    $("p").text("nouveau");
+
+    // changer le contenu HTML de l'élément avec l'id 'mID'
+    $('#mID').html('<strong>Salut</strong>'');
+
+    2. Gestion des évènements 
+        Le clic
+        // Éxécuter une fonction lorsque le bouton est cliqué
+        $('#monBouton').click(function(){
+            alert('Bouton cliqué')
+        })
