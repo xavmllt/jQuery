@@ -22,9 +22,12 @@
         a{
             text-decoration: none;
             color: black;
+            width: 250px;
+            height: 250px;
         }
         img{
             border: 1px solid black;
+            margin: auto;
         }
         ul, li{
             list-style: none;
@@ -40,51 +43,55 @@
             display: none;
             color: #fff;
         }
+        #zoom {
+            position: absolute;
+            border: 1px solid #333;
+            background: #333;
+            padding: 3px;
+            display: none;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <h2>Effet de zoom sur les images et <br>affichage des légendes</h2>
 
     <ul>
-        <li><a href="logo.jpg" class="zoom" title="Ours polaire en danger"><img src="logo.jpg" alt="Ours en danger"></a></li>
-        <li><a href="logo.jpg" class="zoom" title="Ours polaire en danger"><img src="logo.jpg" alt="Ours en danger"></a></li>
-        <li><a href="logo.jpg" class="zoom" title="Ours polaire en danger"><img src="logo.jpg" alt="Ours en danger"></a></li>
-        <li><a href="logo.jpg" class="zoom" title="Ours polaire en danger"><img src="logo.jpg" alt="Ours en danger"></a></li>
+        <li><a href="./images/meduse1.jpg" class="zoom" title="Ours polaire en danger"><img src="./images/meduse1.jpg" alt="Ours en danger" width="150px" height="150px"></a></li>
+        <li><a href="./images/meduse2.jpg" class="zoom" title="Ours polaire en danger"><img src="./images/meduse2.jpg" alt="Ours en danger" width="150px" height="150px"></a></li>
+        <li><a href="./images/meduse3.jpg" class="zoom" title="Ours polaire en danger"><img src="./images/meduse3.jpg" alt="Ours en danger" width="150px" height="150px"></a></li>
+        <li><a href="./images/meduse4.jpg" class="zoom" title="Ours polaire en danger"><img src="./images/meduse4.jpg" alt="Ours en danger" width="150px" height="150px"></a></li>
     </ul>
 
-
     <script>
-        $(document).ready(function(){
-            this.zoom_image = function(){
-                xOffset = 10;
-                yOffset = 30;
-                $("a.zoom").hover(function(e){
-                    this.texte = this.title;
-                    this.title = "";
-                    var legende = (this.texte != "") ? "<br>" + this.texte: "";
-                    $("body").append("<p id='zoom'>img src='" + this.href + "' alt='visualisation image'/>" + legende + "</p>");
-                    $("#zoom")
-                    .css("top",(e.pageY - xOffset) + "px")
-                    .css("left",(e.pageX - yOffset) + "px")
-                    .fadeIn("slow");
-                },
-                function(){
-                    this.title = this.texte;
-                    $("#zoom").remove();
-                });
-                $("a.zoom").mousemove(function(e){
-                    $("#zoom")
-                    .css("top",(e.pageY - xOffset) + "px")
-                    .css("left",(e.pageX - yOffset) + "px")
-                });
-            };
-            $(document).ready(function(){
-                zoom_image();
-            });
-        });
-    </script>
-    
-    
-    
+        this.zoom_image = function () {
+                        xOffset = 0;
+                        yOffset = 0;
+                        $("a.zoom").hover(
+                            function (e) {
+                            this.textes = this.title;
+                            this.title = "";
+                            var legende = this.textes != "" ? "<br />" + this.textes : "";
+                            $("body")
+                            .append("<p id='zoom'><img src=' "+ this.href + " ' alt = 'visualisation image' style='width: 250px; height: auto;'/>" + legende + "</p>" );
+                            $("#zoom")
+                                .css("top",(e.pageY - xOffset) + "px")
+                                .css("left" , (e.pageX - yOffset) + "px")
+                                .fadeIn("Slow");
+                        },
+                        function(){
+                            this.title = this.textes;
+                            $("#zoom").remove();
+                        });
+                        $("a.zoom").mousemove(function(e){
+                            $("#zoom")
+                                .css("top",(e.pageY - xOffset) + "px")
+                                .css("left" , (e.pageX - yOffset) + "px")
+                        });
+                    };
+                    $(document).ready(function(){
+                        zoom_image();
+                    });
+            </script>
 </body>
 </html>
